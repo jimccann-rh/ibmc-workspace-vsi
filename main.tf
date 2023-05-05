@@ -48,5 +48,6 @@ module "virtual-machines" {
   local_disk   = false
   ssh_key_ids  = local.ssh_key_ids
   tags         = local.tags
+  pgids        = var.pgids
 }
 
