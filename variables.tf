@@ -29,3 +29,10 @@ variable "domain_name" {
   type        = string
   default     = "example.com"
 }
+
+variable "vsicount" {
+  description = "Number of VSI systems"
+  type        = string
+  default     = "1"
+}
+
