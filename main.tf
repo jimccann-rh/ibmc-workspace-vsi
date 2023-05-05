@@ -39,7 +39,7 @@ module "vlans" {
 module "virtual-machines" {
   depends_on   = [module.vlans]
   source       = "./modules/compute-virtual"
-  count        = 2 
+  count        = var.vsicount 
   name         = "${var.project}-virtual-instance-${count.index}"
   datacenter   = var.datacenter
   domain_name  = var.domain_name
