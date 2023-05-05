@@ -6,6 +6,7 @@ variable "domain_name" {}
 variable "tags" {}
 variable "ssh_key_ids" {}
 variable "local_disk" {}
+variable "pgids" {}
 ## Variables with default values 
 variable "network_speed" {
   description = "The network speed for the virtual instance."
