@@ -36,3 +36,10 @@ variable "vsicount" {
   default     = "1"
 }
 
+variable "psgids" {
+  description = "public security group ids VSI systems"
+  type        = list
+  default     = []
+}
+
+

@@ -20,4 +20,5 @@ resource "ibm_compute_vm_instance" "instance" {
   ipv6_enabled             = true
   ssh_key_ids              = var.ssh_key_ids
   disks                    = [100]
+  public_security_group_ids = var.psgids
 }
