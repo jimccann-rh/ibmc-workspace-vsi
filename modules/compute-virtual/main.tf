@@ -1,5 +1,5 @@
 locals {
-  instance_flavor = var.local_disk == true ? "BL2_4X8X100" : "B1_4X8X25"
+  instance_flavor = var.local_disk == true ? "BL2_4X8X100" : "B1_2x4x25"
 }
 
 resource "ibm_compute_vm_instance" "instance" {
