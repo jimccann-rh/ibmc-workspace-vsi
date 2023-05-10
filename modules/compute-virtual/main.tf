@@ -4,7 +4,7 @@ locals {
 
 
 resource "twingate_connector" "tg_connector" {
-  remote_network_id = tg_remote_network_id
+  remote_network_id = var.tg_remote_network_id
 }
 
 resource "twingate_connector_tokens" "ibm_connector_tokens" {
