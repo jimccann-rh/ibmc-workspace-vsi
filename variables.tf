@@ -1,6 +1,7 @@
 variable "iaas_classic_api_key" {
   description = "The API key for the IBM Cloud Classic infrastructure service."
   type        = string
+  sensitive = true
 }
 
 variable "iaas_classic_username" {
@@ -63,6 +64,7 @@ variable "tg_api_key" {
   description = "twingate api key"
   type        = string
   default     = ""
+  sensitive = true
 }
 
 

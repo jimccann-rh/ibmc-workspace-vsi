@@ -13,6 +13,7 @@ resource "twingate_connector_tokens" "ibm_connector_tokens" {
 
 data "template_file" "init" {
   template = file("${path.module}/user-data.yml")
+  sensitive = true
   vars = {
     tg_connector_token = "${twingate_connector_tokens.ibm_connector_tokens.access_token}"
     tg_connector_refresh_token = "${twingate_connector_tokens.ibm_connector_tokens.refresh_token}"
