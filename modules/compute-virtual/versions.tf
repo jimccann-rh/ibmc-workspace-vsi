@@ -4,5 +4,9 @@ terraform {
       source  = "IBM-Cloud/ibm"
       version = "1.53.0"
     }
+    twingate = {
+      source = "twingate/twingate"
+      version = "1.0.0"
+    }
   }
 }
