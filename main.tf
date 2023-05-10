@@ -52,9 +52,9 @@ module "vlans" {
 module "virtual-machines" {
   depends_on   = [module.vlans]
   source       = "./modules/compute-virtual"
-#  count        = var.vsicount 
-#  name         = "${var.project}-virtual-instance-${count.index}"
-  name         = "${var.project}-virtual-instance-tg}"
+  count        = var.vsicount 
+  name         = "${var.project}-virtual-instance-${count.index}"
+#  name         = "${var.project}-virtual-instance-tg}"
   datacenter   = var.datacenter
   domain_name  = var.domain_name
   public_vlan  = module.vlans.public_compute_vlan.id
