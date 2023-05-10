@@ -42,4 +42,29 @@ variable "psgids" {
   default     = []
 }
 
+#variable "vm-post-install-script-uri" {
+# default = "https://binaries.twingate.com/connector/setup.sh"
+#}
+
+
+variable "tg_remote_network_id" {
+  description = "twingate remote network id"
+  type        = string
+  default     = ""
+}
+
+variable "tg_network" {
+  description = "twingate network"
+  type        = string
+  default     = ""
+}
+
+variable "tg_api_key" {
+  description = "twingate api key"
+  type        = string
+  default     = ""
+}
+
+
+
 

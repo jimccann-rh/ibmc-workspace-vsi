@@ -2,7 +2,10 @@ terraform {
   required_providers {
     ibm = {
       source  = "IBM-Cloud/ibm"
-      version = "1.48.0-beta0"
+      version = "1.53.0"
+    }
+    twingate = {
+      source = "twingate/twingate"
     }
   }
 }

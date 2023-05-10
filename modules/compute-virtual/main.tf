@@ -2,6 +2,27 @@ locals {
   instance_flavor = var.local_disk == true ? "BL2_4X8X100" : "B1_2X4X25"
 }
 
+
+resource "twingate_connector" "tg_connector" {
+  remote_network_id = tg_remote_network_id
+}
+
+resource "twingate_connector_tokens" "ibm_connector_tokens" {
+  connector_id = twingate_connector.tg_connector.id
+}
+
+
+data "template_file" "init" {
+  template = file("${path.module}/user-data.yml")
+  vars = {
+    tg_connector_token = "${twingate_connector_tokens.ibm_connector_tokens.access_token}"
+    tg_connector_refresh_token = "${twingate_connector_tokens.ibm_connector_tokens.refresh_token}"
+    tg_network = "${var.tg_network}"
+  }
+}
+
+
+
 resource "ibm_compute_vm_instance" "instance" {
   hostname                 = var.name
   domain                   = var.domain_name
@@ -19,6 +40,7 @@ resource "ibm_compute_vm_instance" "instance" {
   dedicated_acct_host_only = false
   ipv6_enabled             = true
   ssh_key_ids              = var.ssh_key_ids
-  disks                    = [100]
+#  disks                    = [100]
   public_security_group_ids = var.psgids
+#  post_install_script_uri = "${var.vm-post-install-script-uri}"
 }

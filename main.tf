@@ -1,3 +1,16 @@
+#variable "tg_api_key" {}
+#variable "tg_network" {}
+#
+#resource "twingate_connector" "tg_connector" {
+#  remote_network_id = tg_remote_network_id
+#}
+#
+#resource "twingate_connector_tokens" "ibm_connector_tokens" {
+#  connector_id = twingate_connector.tg_connector.id
+#}
+
+
+
 locals {
   deploy_date = formatdate("YYYY-MM-DD", timestamp())
   ssh_key_ids = var.existing_ssh_key != "" ? [data.ibm_compute_ssh_key.existing[0].id, ibm_compute_ssh_key.project.id] : [ibm_compute_ssh_key.project.id]
@@ -49,5 +62,8 @@ module "virtual-machines" {
   ssh_key_ids  = local.ssh_key_ids
   tags         = local.tags
   psgids        = var.psgids
+  tg_remote_network_id = var.tg_remote_network_id
+  tg_network = var.tg_network
+  tg_api_key = var.tg_api_key
 }
 
