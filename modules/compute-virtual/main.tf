@@ -20,10 +20,6 @@ data "template_file" "init" {
   }
 }
 
-data "template_cloudinit_config" "init" {
-gzip = true
-base64_encode = true
-
 
 resource "ibm_compute_vm_instance" "instance" {
   hostname                 = var.name
@@ -35,8 +31,7 @@ resource "ibm_compute_vm_instance" "instance" {
   local_disk               = var.local_disk
   private_network_only     = false
   flavor_key_name          = local.instance_flavor
-  user_metadata_base64            = data.template_filetemplate_cloudinit_config.init.rendered
-#  user_metadata            = data.template_file.init.rendered
+  user_metadata            = data.template_file.init.rendered
 #  user_metadata            = file("${path.module}/user-data.yml")
   private_vlan_id          = var.private_vlan
   public_vlan_id           = var.public_vlan
