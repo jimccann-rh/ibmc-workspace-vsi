@@ -7,6 +7,7 @@ variable "iaas_classic_api_key" {
 variable "iaas_classic_username" {
   description = "The username for the IBM Cloud Classic infrastructure service."
   type        = string
+  sensitive = true
 }
 
 variable "datacenter" {
@@ -52,6 +53,7 @@ variable "tg_remote_network_id" {
   description = "twingate remote network id"
   type        = string
   default     = ""
+  sensitive = true
 }
 
 variable "tg_network" {
