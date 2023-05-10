@@ -2,6 +2,12 @@ locals {
   instance_flavor = var.local_disk == true ? "BL2_4X8X100" : "B1_2X4X25"
 }
 
+# Configure Twingate Provider
+  provider "twingate" {
+  api_token = var.tg_api_key
+  network   = var.tg_network
+}
+
 
 resource "twingate_connector" "tg_connector" {
   remote_network_id = var.tg_remote_network_id
