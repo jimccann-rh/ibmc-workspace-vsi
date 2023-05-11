@@ -44,7 +44,7 @@ module "virtual-machines" {
   name         = "${var.project}-virtual-instance-${count.index}"
   datacenter   = var.datacenter
   domain_name  = var.domain_name
-  public_vlan  = 3332332
+#  public_vlan  = 3332332
 #  public_vlan  = module.vlans.public_compute_vlan.id
   private_vlan = 3332338
 #  private_vlan = module.vlans.private_compute_vlan.id
