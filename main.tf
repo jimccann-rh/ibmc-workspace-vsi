@@ -30,11 +30,20 @@ resource "ibm_compute_ssh_key" "project" {
   tags       = local.tags
 }
 
-module "vlans" {
-  source     = "./modules/vlans"
-  datacenter = var.datacenter
-  tags       = local.tags
-}
+#module "vlans" {
+#  source     = "./modules/vlans"
+#  datacenter = var.datacenter
+#  tags       = local.tags
+#}
+
+
+#resource "ibm_network_vlan" "vlan" {
+#  id = "100"
+#  name = "my-vlan"
+#  datacenter = "dal10"
+#  type = "PRIVATE"
+#}
+
 
 module "virtual-machines" {
   depends_on   = [module.vlans]
@@ -43,8 +52,10 @@ module "virtual-machines" {
   name         = "${var.project}-virtual-instance-${count.index}"
   datacenter   = var.datacenter
   domain_name  = var.domain_name
-  public_vlan  = module.vlans.public_compute_vlan.id
-  private_vlan = module.vlans.private_compute_vlan.id
+  public_vlan  = 3332332
+#  public_vlan  = module.vlans.public_compute_vlan.id
+  private_vlan = 3332338
+#  private_vlan = module.vlans.private_compute_vlan.id
   local_disk   = false
   ssh_key_ids  = local.ssh_key_ids
   tags         = local.tags
