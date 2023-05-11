@@ -1,5 +1,5 @@
 variable "name" {}
-variable "public_vlan" {}
+#variable "public_vlan" {}
 variable "private_vlan" {}
 variable "datacenter" {}
 variable "domain_name" {}

@@ -16,7 +16,7 @@ resource "ibm_compute_vm_instance" "instance" {
   flavor_key_name          = local.instance_flavor
   user_metadata            = file("${path.module}/user-data.yml")
   private_vlan_id          = var.private_vlan
-  public_vlan_id           = var.public_vlan
+#  public_vlan_id           = var.public_vlan
   tags                     = var.tags
   dedicated_acct_host_only = false
   ipv6_enabled             = true
