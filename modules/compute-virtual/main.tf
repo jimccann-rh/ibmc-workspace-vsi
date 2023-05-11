@@ -13,7 +13,7 @@ resource "twingate_connector_tokens" "ibm_connector_tokens" {
 
 
 data "template_file" "init" {
-  sensitive = true
+  #sensitive = true
   template = file("${path.module}/user-data.yml")
   #template = sensitive(file("${path.module}/user-data.yml"))
   vars = {
