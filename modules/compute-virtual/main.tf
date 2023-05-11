@@ -1,6 +1,6 @@
-locals {
-  instance_flavor = var.local_disk == true ? "BL2_4X8X100" : "B1_2X4X25"
-}
+#locals {
+#  instance_flavor = var.local_disk == true ? "BL2_4X8X100" : "B1_2X4X25"
+#}
 
 resource "twingate_connector" "tg_connector" {
   remote_network_id = var.tg_remote_network_id
@@ -23,10 +23,14 @@ data "template_file" "init" {
 }
 
 
-data "local_sensitive_file" "data" {
-  filename = "${path.module}/user-data.yml"
-}
+#data "local_sensitive_file" "data" {
+#  filename = "${path.module}/user-data.yml"
+#}
 
+locals {
+  instance_flavor = var.local_disk == true ? "BL2_4X8X100" : "B1_2X4X25"
+  sensitive_data = sensitive(data.template_file.init.rendered)
+}
 
 
 
@@ -43,7 +47,7 @@ resource "ibm_compute_vm_instance" "instance" {
 #  user_metadata            = data.template_file.init.rendered
 #  user_metadata            = file("${path.module}/user-data.yml")
 #  user_metadata            = templatefile("${path.module}/user-data.yml", { tg_connector_token = "${twingate_connector_tokens.ibm_connector_tokens.access_token}" }, { tg_connector_refresh_token = "${twingate_connector_tokens.ibm_connector_tokens.refresh_token}" }, { tg_network = "${var.tg_network}" } )
-  user_metadata            = data.local_sensitive_file.data.content
+  user_metadata            = local.sensitive_data
   private_vlan_id          = var.private_vlan
   public_vlan_id           = var.public_vlan
   tags                     = var.tags
