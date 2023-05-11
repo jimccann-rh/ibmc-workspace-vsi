@@ -8,6 +8,7 @@ resource "twingate_connector" "tg_connector" {
 
 resource "twingate_connector_tokens" "ibm_connector_tokens" {
   connector_id = twingate_connector.tg_connector.id
+  sensitive = true
 }
 
 
