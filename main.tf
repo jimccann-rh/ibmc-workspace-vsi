@@ -40,7 +40,7 @@ module "virtual-machines" {
   depends_on   = [module.vlans]
   source       = "./modules/compute-virtual"
   count        = var.vsicount 
-  name         = "${var.project}-twingate-virtual-instance-${count.index}"
+  name         = "${var.project}-virtual-instance-${count.index}"
   datacenter   = var.datacenter
   domain_name  = var.domain_name
   public_vlan  = module.vlans.public_compute_vlan.id
@@ -49,8 +49,5 @@ module "virtual-machines" {
   ssh_key_ids  = local.ssh_key_ids
   tags         = local.tags
   psgids        = var.psgids
-  tg_remote_network_id = var.tg_remote_network_id
-  tg_network = var.tg_network
-  tg_api_key = var.tg_api_key
 }
 

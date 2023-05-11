@@ -49,25 +49,3 @@ variable "psgids" {
 #}
 
 
-variable "tg_remote_network_id" {
-  description = "twingate remote network id"
-  type        = string
-  default     = ""
-  sensitive = true
-}
-
-variable "tg_network" {
-  description = "twingate network"
-  type        = string
-  default     = ""
-}
-
-variable "tg_api_key" {
-  description = "twingate api key"
-  type        = string
-  default     = ""
-  sensitive = true
-}
-
-
-

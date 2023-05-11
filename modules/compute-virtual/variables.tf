@@ -20,11 +20,4 @@ variable "os_reference_code" {
   default     = "REDHAT_8_64"
 }
 
-variable "tg_api_key" {
-  sensitive = true
-}
-variable "tg_network" {}
-variable "tg_remote_network_id" {}
-
-
 
