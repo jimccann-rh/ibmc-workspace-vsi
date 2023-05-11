@@ -23,12 +23,12 @@ locals {
 #    EOT
 #  }
 #}
-#
-#resource "ibm_compute_ssh_key" "project" {
-#  label      = "${var.project}-sshkey"
-#  public_key = tls_private_key.ssh.public_key_openssh
-#  tags       = local.tags
-#}
+
+resource "ibm_compute_ssh_key" "project" {
+  label      = "${var.project}-sshkey"
+  public_key = tls_private_key.ssh.public_key_openssh
+  tags       = local.tags
+}
 
 #module "vlans" {
 #  source     = "./modules/vlans"
