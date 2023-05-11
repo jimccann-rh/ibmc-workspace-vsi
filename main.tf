@@ -10,11 +10,11 @@ locals {
   ]
 }
 
-#resource "tls_private_key" "ssh" {
-#  algorithm = "RSA"
-#  rsa_bits  = 4096
-#}
-#
+resource "tls_private_key" "ssh" {
+  algorithm = "RSA"
+  rsa_bits  = 4096
+}
+
 #resource "null_resource" "create_private_key" {
 #  provisioner "local-exec" {
 #    command = <<-EOT
@@ -34,14 +34,6 @@ resource "ibm_compute_ssh_key" "project" {
 #  source     = "./modules/vlans"
 #  datacenter = var.datacenter
 #  tags       = local.tags
-#}
-
-
-#resource "ibm_network_vlan" "vlan" {
-#  id = "100"
-#  name = "my-vlan"
-#  datacenter = "dal10"
-#  type = "PRIVATE"
 #}
 
 
