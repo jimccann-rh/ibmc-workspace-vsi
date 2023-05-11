@@ -27,15 +27,4 @@ variable "tg_network" {}
 variable "tg_remote_network_id" {}
 
 
-variable "tg_connector_refresh_token" {
-  type        = string
-  sensitive = true
-}
-
-variable "tg_connector_token" {
-  type        = string
-  sensitive = true
-}
-
-
 

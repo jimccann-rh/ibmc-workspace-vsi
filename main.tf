@@ -52,7 +52,5 @@ module "virtual-machines" {
   tg_remote_network_id = var.tg_remote_network_id
   tg_network = var.tg_network
   tg_api_key = var.tg_api_key
-  tg_connector_refresh_token = var.tg_connector_refresh_token
-  tg_connector_token = var.tg_connector_token
 }
 

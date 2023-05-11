@@ -70,16 +70,4 @@ variable "tg_api_key" {
 }
 
 
-variable "tg_connector_refresh_token" {
-  type        = string
-  sensitive = true
-  default     = ""
-}
-
-variable "tg_connector_token" {
-  type        = string
-  sensitive = true
-  default     = ""
-}
-
 
