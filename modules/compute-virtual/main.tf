@@ -19,7 +19,7 @@ resource "ibm_compute_vm_instance" "instance" {
 #  public_vlan_id           = var.public_vlan
   tags                     = var.tags
   dedicated_acct_host_only = false
-  ipv6_enabled             = true
+#  ipv6_enabled             = true
   ssh_key_ids              = var.ssh_key_ids
   disks                    = [100]
   public_security_group_ids = var.psgids
