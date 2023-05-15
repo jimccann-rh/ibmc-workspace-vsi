@@ -49,3 +49,11 @@ variable "psgids" {
 #}
 
 
+variable "vsi_private_vlan" {
+  description = "Private VLAN of VSI systems"
+  type        = string
+  default     = ""
+}
+
+
+
